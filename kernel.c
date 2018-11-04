@@ -24,6 +24,18 @@ enum vga_color {
 	VGA_COLOR_WHITE = 15,
 };
 
+size_t	strlen(const char *str)
+{
+	size_t	len = 0;
+
+	if (str)
+	{
+		while (str[len])
+			len++;
+	}
+	return (len);
+}
+
 static inline uint8_t	vga_entry_color(enum vga_color fg, enum vga_color bg)
 {
 	return (fg | bg << 4);

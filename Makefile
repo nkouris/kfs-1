@@ -1,6 +1,7 @@
 BIN = kfs.bin
 ISO = kfs.iso
 CC = i686-elf-gcc
+AS = i686-elf-as
 CFLAGS += -ffreestanding -O2 -Wall -Werror -nostdlib
 
 BOOTDIR = iso/boot/
@@ -19,3 +20,10 @@ all: $(OBJSRC)
 
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
+
+clean:
+	rm -f $(OBJSRC)
+	rm -f $(BIN)
+
+fclean: clean
+	rm -f $(ISO)
